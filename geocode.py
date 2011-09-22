@@ -5,7 +5,7 @@ from geopy import geocoders
 from arcpy import env
 
 # Setup File Locations
-env.workspace = "J:/292A Yakama Solid Waste/GIS/Layers/ISWMP"
+env.workspace = "C:/Temp"
 siteSource = "existing_sites.csv"
 siteGeocoded = "existing_sites_geocoded.csv"
 
@@ -18,6 +18,7 @@ try:
     writer = csv.writer(fGeocoded)
     i = 0
     for row in reader:
+        # Write column names to output file
         if i == 0:
             writer.writerow((row[0],row[1],"lat","lng"))
             i = i+1
