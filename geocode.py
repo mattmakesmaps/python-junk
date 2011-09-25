@@ -33,6 +33,7 @@ finally:
     fGeocoded.close()
 
 # Making the XY Event Layer
+"""
 try:
     print "Beginning XY Event Layer Creation"
     # Setup    
@@ -50,3 +51,4 @@ try:
     print "Finished XY Event Layer Creation"
 except:
     print arcpy.GetMessages()
+"""
