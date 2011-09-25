@@ -2,3 +2,5 @@
 
 ## Compiled Python Files ##
 *.pyc
+.project
+.pydevproject

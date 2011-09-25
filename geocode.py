@@ -1,18 +1,23 @@
-import arcpy
+#!/usr/bin/python
+
+#import arcpy
+import time
 import csv
 import urllib2
 from geopy import geocoders
-from arcpy import env
+#from arcpy import env
 
 # Setup File Locations
-env.workspace = "C:/Temp"
-siteSource = "existing_sites.csv"
-siteGeocoded = "existing_sites_geocoded.csv"
+workspace = "/home/matt/Projects/python-junk/data"
+siteSource = "landfills.csv"
+siteGeocoded = "landfills_geocoded.csv"
 
 # Geocoding
 g = geocoders.Google()
-fSource = open(env.workspace + "/" + siteSource, 'rb')
-fGeocoded = open(env.workspace + "/" + siteGeocoded, 'wb')
+fSource = open(workspace + "/" + siteSource, 'rb')
+fGeocoded = open(workspace + "/" + siteGeocoded, 'wb')
+
+start = time.time()
 try:
     reader = csv.reader(fSource)
     writer = csv.writer(fGeocoded)
@@ -23,7 +28,8 @@ try:
             writer.writerow((row[0],row[1],"lat","lng"))
             i = i+1
         try:
-            place, (lat, lng) = g.geocode(row[1])
+            # concatenate (if necessary) columns required to make an address
+            place, (lat, lng) = g.geocode(str(row[3] + " " + row[4] + " " + row[5] + " " + row[6]))
             writer.writerow((row[0],row[1],lat,lng))
             print "%s: %.5f, %.5f" % (place, lat, lng)
         except:
@@ -52,3 +58,4 @@ try:
 except:
     print arcpy.GetMessages()
 """
+print "elapsed time: %s" % (time.time() - start)
