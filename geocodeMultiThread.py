@@ -29,7 +29,7 @@ class ThreadGeocode(threading.Thread):
             # Signal a task is done, and lower the queue count
             self.queue.task_done()
 
-# Setup File Locations
+# Setup File Locations Using Relative Pathways
 workspace = "./data"
 siteSource = "landfills.csv"
 siteGeocoded = "landfills_geocoded.csv"
