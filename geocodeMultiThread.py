@@ -5,6 +5,7 @@ import time
 import csv
 import threading
 import urllib2
+import sys
 from geopy import geocoders
 
 # Threaded Geocoder Class
@@ -13,6 +14,8 @@ class ThreadGeocode(threading.Thread):
         threading.Thread.__init__(self)
         self.queue = queue
 
+    # What's the deal with stuff? Lets do some stuff.
+    # Here are instructions that each thread will execute.
     def run(self):
         while True:
             # grab from the queue
@@ -20,13 +23,14 @@ class ThreadGeocode(threading.Thread):
             try:
                 place, (lat, lng) = g.geocode(str(row[3] + " " + row[4] + " " + row[5] + " " + row[6]))
                 writer.writerow((row[0],row[1],lat,lng))
-                print "%s: %.5f, %.5f" % (place, lat, lng)
+                print "%s: %.5f, %.5f, Thread: %s" % (place, lat, lng, self.ident)
             except:
-                pass
+                print "THREADING ERROR:", sys.exc_info()[0]
+            # Signal a task is done, and lower the queue count
             self.queue.task_done()
 
 # Setup File Locations
-workspace = "/home/matt/Projects/python-junk/data"
+workspace = "./data"
 siteSource = "landfills.csv"
 siteGeocoded = "landfills_geocoded.csv"
 
@@ -41,9 +45,9 @@ start = time.time()
 # Create a queue
 queue = Queue.Queue()
 
-for i in range(6):
+for i in range(15):
     t = ThreadGeocode(queue)
-    t.setDaemon(queue)
+    t.daemon = True
     t.start()
 
 try:
@@ -56,8 +60,14 @@ try:
             writer.writerow((row[0],row[1],"lat","lng"))
             i = i+1
         else:
+            # Add an item into the queue
             queue.put(row)
-        queue.join()
+    # Once all tasks are done, unblock
+    queue.join()
+
+except:
+    print "MAIN ERROR:", sys.exc_info()[0]
+
 finally:
     fSource.close()
     fGeocoded.close()
