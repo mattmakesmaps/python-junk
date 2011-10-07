@@ -3,8 +3,10 @@
 import doMaths
 import unittest
 
+# subclass unittest.TestCase
 class TestMaths(unittest.TestCase):
     
+    # runs before every test
     def setUp(self):
         self.x = 5
         self.y = 10
