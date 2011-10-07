@@ -10,10 +10,11 @@ class TestMaths(unittest.TestCase):
     def setUp(self):
         self.x = 5
         self.y = 10
-            
+
+    # Fails due to incorrect expectation        
     def testAdd(self):
         result = doMaths.doMaths(self.x, self.y, '+')
-        self.assertEqual(result, 15)
+        self.assertEqual(result, 20)
         
     def testMult(self):
         result = doMaths.doMaths(self.x, self.y,'*')
@@ -28,12 +29,15 @@ class TestMaths(unittest.TestCase):
         result = doMaths.doMaths(self.x, self.y,'-')
         self.assertEqual(result, -5)
     
+    # Will fail if TypeError not raised
     def testType(self):
         # Test for automatically generated TypeError
         self.assertRaises(TypeError, doMaths.doMaths, 'three', 4, '-')
+    
+    # Will fail if AssertionError not raised
+    def testOpAssertion(self):
         # Test 'operation' assert inside of doMaths module
-        self.assertRaises(AssertionError, doMaths.doMaths, 3, 4, 12)
-
+        self.assertRaises(AssertionError, doMaths.doMaths, 3, 4, '-')
                 
 if __name__ == '__main__':
     unittest.main()
