@@ -1,0 +1,87 @@
+Brian Dorsey Workshop
+=====================
+
+# Introduction
+
+  *  Can build pretty much anything by gluing together the pieces.
+  *  Apply your field's contextual knowledge to the process.
+  *  Python has an even learning curve. Scales in complexity based
+     on your own needs, experience
+  *  Learn just enough to setup a network server.
+
+# Terms
+
+  *  DNS = resolves openbasemap.org to 1xx.xx.xx.x.
+  *  IP = a postal address.
+  *  Port = The apartment number of the internet.
+
+# Network Diagrams
+
+  * Application <--> Application level communication is what we
+    will be thinking about today.
+  * Through the data flow, bits are added on (headers) during request
+    and removed to understand the response.
+  * IP Address gets you to a computer or network device, a port gets
+    you to the specific application.
+  * TCP - Picking up the phone, identifying that all the parts are working
+    sending a message, hanging up. reliable due to error checking. SOCK_STREAM
+  * UPD - package and shoot a message across w/o caring about whether or not
+    it gets there. useful for streaming, just keep sending info. timely. DATAGRAM
+
+# Socket abstraction
+  
+  *  First part creates the connection, after that send whatever you want.
+
+# Unicode versus. Encoding
+
+  *  encoding - a byte encoding of a file. a way of converting from byte to unicode.
+
+# Server vs. Client
+
+  *  From a socket perspective. The server is designed to listen at a designated
+     space. The client connects to the known spot, and chat ensues. What makes
+     it a server is that you know where to get it.
+  *  The concept of a server is nebulous. A \"server\" can also actively seek an
+     client and push data to it.
+
+# TCP Echo Client
+
+  *  A socket is a combination of an address and a port.
+  *  A port is transport specific. UDP port 5000 is different then TCP port 5000
+  *  A socket can be blocking or non-blocking.
+
+# Lab A
+
+  *  netstat won't view ports with super high numbers.
+
+# HTTP Made Easy
+
+  *  HTTP is fundamentally stateless. every request is a new request wit ha new response.
+     Server needs to make decisions based soely on what you send it in that moment.
+     Cookies are created to provide state.
+
+## Terms
+
+  *  Resources (Nouns): Example: "/path/to/index.html"
+  *  Headers = Context
+  *  Body = Content
+  *  methods = Verbs
+
+## HTTP Requests
+  *  Use PUT when you know the exact resource to update.
+  *  USE POST when you are doing a process (create new user).
+
+### Social Contract
+
+  *  GETs shouldn't hurt anybody. your service should do any create/update/delete
+     when it recieves a get.
+  *  Idempotent (what?) - GET/PUT/DELETE should always yield the same answer.
+  *  POST should not be repetable and expect the same result.
+  *  resources != files. They may map to files. But can execute dynamic processes.
+     It's an abstract thing, but the server defines what the resource really means.
+  *  With echo_server.py, the browser will see the response is in plain text, and
+     automatically add a 200 OK status code, w/o explicitly recieving that status
+     code from the file. The browser interprets a plain text response as
+     automatically, \'OK\'.
+
+# Unit C
