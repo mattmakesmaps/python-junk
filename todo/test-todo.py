@@ -12,7 +12,7 @@ def test_create_todo():
     assert len(todo.todos) == 1, "Todo was not created!"
     assert todo.todos[0]['title'] == "Make some stuff"
     assert (todo.todos[0]['description'] == "Stuff needs to be programmed")
-    assert todo.todos[0]['level'] == "Important"
+    assert todo.todos[0]['level'] == "IMPORTANT"
 
     print "ok -- create_todo"
 
@@ -53,6 +53,7 @@ def test_show_todos():
             }
         ]
 
+    todo.sort_todos() #sort before you show!
     result = todo.show_todos(todo.todos)
     lines = result.split("\n")
 
@@ -87,6 +88,7 @@ def test_todo_sort_order():
                 'level': 'Important'
             }
         ]
+    todo.sort_todos()
     result = todo.show_todos(todo.todos)
     lines = result.split("\n")
     assert "IMPORTANT" in lines[1]
@@ -106,14 +108,137 @@ def test_save_todo_list():
         ]
 
     todo.todos = todos_original
-    pdb.set_trace()
     assert "todos.pickle" not in os.listdir('.')
     todo.save_todo_list()
     assert "todos.pickle" in os.listdir('.')
     todo.load_todo_list()
-    assert "todo.todos" == todos_original
+    #assert "todo.todos" == todos_original # order of dictionary items differ
+    assert todo.todos[0]['level'] == todos_original[0]['level']
+    assert todo.todos[0]['title'] == todos_original[0]['title']
+    assert todo.todos[0]['description'] == todos_original[0]['description']
     os.unlink("todos.pickle")
 
     print "ok -- save_todo_list"
 
 test_save_todo_list()
+
+def test_todo_sort_after_creation():
+    todo.todos = [
+            { 'title':'test unimportant todo',
+                'description':'This is an unimportant test',
+                'level': 'Unimportant'
+                },
+            { 'title':'test medium todo',
+                'description':'This is a test',
+                'level':'Medium'
+                },
+            ]
+
+    todo.create_todo(todo.todos,
+            title="Make some stuff",
+            description="Stuff needs to be programmed",
+            level="Important")
+
+    assert todo.todos[0]['level'] == "IMPORTANT"
+    assert todo.todos[1]['level'] == "Medium"
+    assert todo.todos[2]['level'] == "Unimportant"
+
+    print "ok -- todo_sort_after_creation"
+
+test_todo_sort_after_creation()
+
+def test_delete_todo():
+    todo.todos = [
+            { 'title':'test important todo',
+                'description':'this is an important test',
+                'level':'IMPORTANT'
+                },
+            { 'title':'test medium todo',
+                'description':'this is a test',
+                'level':'Medium'
+                },
+            { 'title':'test unimportant todo',
+                'description':'this is an unimportant test',
+                'level':'Unimportant'
+                },
+            ]
+
+    response = todo.delete_todo(todo.todos, which="2")
+
+    assert response == "Deleted todo #2"
+    assert len (todo.todos) == 2
+    assert todo.todos[0]['level'] == 'IMPORTANT'
+    assert todo.todos[1]['level'] == 'Unimportant'
+
+    print "ok -- test_delete_todo"
+
+test_delete_todo()
+
+def test_delete_todo_failure():
+    todo.todos = [
+            { 'title':'test important todo',
+                'description':'Thi is an important test',
+                'level':'IMPORTANT'
+                },
+            ]
+
+    for bad_input in ['','foo', '0', '42']:
+        response = todo.delete_todo(
+                todo.todos, which=bad_input)
+        assert response == ("'" + bad_input + 
+                "' needs to be the number of a todo!")
+        assert len(todo.todos) == 1
+
+    print "ok -- test_delete_todo_failures"
+
+test_delete_todo_failure()
+
+def test_edit_todo():
+    todo.todos = [
+            {'title':"Make some stuff",
+                'description':'This is an important test',
+                'level':'IMPORTANT'
+                },
+            ]
+
+    response = todo.edit_todo(todo.todos,
+            which="1",
+            title="",
+            description="Stuff needs to be programmed properly",
+            level="")
+
+    assert response == "Edited todo #1", response
+    assert len(todo.todos) == 1
+    assert todo.todos[0]['title']=="Make some stuff"
+    assert (todo.todos[0]['description']==
+             "Stuff needs to be programmed properly")
+    assert todo.todos[0]['level']=="IMPORTANT"
+
+    print "ok -- edit_todo"
+
+test_edit_todo()
+
+def test_edit_importance():
+    todo.todos = [
+            { 'title':'test medium todo',
+                'description':'This is a medium todo',
+                'level':'medium'
+                },
+            { 'title': 'test another medium todo',
+                'description':'This is another medium todo',
+                'level':'medium'
+                },
+            ]
+
+    response = todo.edit_todo(todo.todos,
+            which="2",
+            title="",
+            description="",
+            level="Important")
+
+    assert todo.todos[0]['level'] == "IMPORTANT"
+    assert todo.todos[1]['level'] == "medium"
+
+    print "ok -- edit_importance"
+
+test_edit_importance()

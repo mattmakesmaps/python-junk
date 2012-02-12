@@ -6,6 +6,21 @@ def test(todos, abcd, ijkl):
     return "Command 'test' returned:\n" + \
             "abcd: " + abcd + "\nijkl: " + ijkl
 
+def capitalize(todo):
+    todo['level'] = todo['level'].upper()
+    return todo
+
+def sort_todos():
+    global todos
+    important = [capitalize(todo) for todo in todos
+            if todo['level'].lower() == 'important']
+    unimportant = [todo for todo in todos
+            if todo['level'].lower() == 'unimportant']
+    medium = [todo for todo in todos
+            if todo['level'].lower() != 'important' and
+            todo['level'].lower() != 'unimportant']
+    todos = important + medium + unimportant
+
 def create_todo(todos, title, description, level):
     """Create a todo."""
     todo = {
@@ -14,6 +29,35 @@ def create_todo(todos, title, description, level):
             'level':level,
             }
     todos.append(todo)
+    sort_todos()
+    return "Created '%s'." % title
+
+def delete_todo(todos, which):
+    if not which.isdigit(): # if FALSE, then
+        return ("'" + which + "' needs to be the number of a todo!")
+    which = int(which)
+    if which < 1 or which > len(todos):
+        return("'" + str(which) + "' needs to be the number of a todo!")
+    del todos[which-1]
+    return "Deleted todo #" + str(which)
+
+def edit_todo(todos, which, title, description, level):
+    if not which.isdigit():
+        return("'" + which + "' needs to be the number of a todo!")
+    which = int(which)
+    if which < 1 or which > len(todos):
+        return("'" + str(which) + "' needs to be the number of a todo!")
+
+    todo = todos[which-1]
+    if title != "":
+        todo['title'] = title
+    if description != "":
+        todo['description'] = description
+    if level != "":
+        todo['level'] = level
+
+    sort_todos()
+    return "Edited todo #" + str(which)
 
 def save_todo_list():
     """Save the todo list"""
@@ -28,25 +72,11 @@ def load_todo_list():
         save_file = file("todos.pickle")
         todos = pickle.load(save_file)
 
-def capitalize(todo):
-    todo['level'] = todo['level'].upper()
-    return todo
-
 def show_todos(todos):
     """Given the todos object, display them"""
     output = ("Item|Title|Description|Level|\n")
 
-    # List Comprehension
-    important = [capitalize(todo) for todo in todos
-            if todo['level'].lower() == 'important']
-    unimportant = [todo for todo in todos
-            if todo['level'].lower() == 'unimportant']
-    medium = [todo for todo in todos
-            if todo['level'].lower() != 'important' and
-               todo['level'].lower() != 'unimportant']
-    sorted_todos = (important + medium + unimportant) 
-
-    for index, todo in enumerate(sorted_todos): #enumerate creates list w/ index
+    for index, todo in enumerate(todos): #enumerate creates list w/ index
         """
         line = str(index+1).ljust(8)
         for key, length in [('title', 16),('description', 24),('level', 16)]:
@@ -70,6 +100,8 @@ commands = {
         'new':[create_todo, ['title','description','level']],
         'test':[test,['abcd','ijkl']],
         'show':[show_todos,[]],
+        'delete':[delete_todo, ['which']],
+        'edit':[edit_todo, ['which','title','description','level']],
         }
 
 todos = []
