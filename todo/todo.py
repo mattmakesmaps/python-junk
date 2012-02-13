@@ -72,21 +72,29 @@ def load_todo_list():
         save_file = file("todos.pickle")
         todos = pickle.load(save_file)
 
-def show_todos(todos):
+def show_todos(todos, which="All"):
     """Given the todos object, display them"""
     output = ("Item|Title|Description|Level|\n")
 
-    for index, todo in enumerate(todos): #enumerate creates list w/ index
-        """
-        line = str(index+1).ljust(8)
-        for key, length in [('title', 16),('description', 24),('level', 16)]:
-            line += str(todo[key]).ljust(length)
-        """
-        line = str(index+1) + '|'
-        for key in ['title','description','level']:
-            line += str(todo[key]) + '|' 
-            # equivalent to line = line + str(todo[key]) + '|'
+    if which=="All":
+        for index, todo in enumerate(todos): #enumerate creates list w/ index
+            line = str(index+1) + '|'
+            for key in ['title','description','level']:
+                line += str(todo[key]) + '|' 
+            output += line + "\n"
+
+    if which!="All":        
+        if not which.isdigit(): # if FALSE, then
+            return ("'" + which + "' needs to be the number of a todo!")
+        which = int(which)
+        if which < 1 or which > len(todos):
+            return("'" + str(which) + "' needs to be the number of a todo!")
+        todo = todos[which-1]
+        line = str(which) + '|'
+        for key in['title','description','level']:
+            line += str(todo[key]) + '|'
         output += line + "\n"
+
     return output
 
 def get_input(fields):
@@ -99,7 +107,7 @@ def get_input(fields):
 commands = {
         'new':[create_todo, ['title','description','level']],
         'test':[test,['abcd','ijkl']],
-        'show':[show_todos,[]],
+        'show':[show_todos,['which']],
         'delete':[delete_todo, ['which']],
         'edit':[edit_todo, ['which','title','description','level']],
         }
@@ -107,7 +115,6 @@ commands = {
 todos = []
 
 def run_command(user_input, data=None):
-    #pdb.set_trace()
     user_input = user_input.lower()
     if user_input not in commands:
         return user_input + "? Command not found."

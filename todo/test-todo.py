@@ -73,6 +73,41 @@ def test_show_todos():
 
 test_show_todos()
 
+def test_show_todos_subset():
+    todo.todos = [
+            { 'title': 'test unimportant todo',
+                'description': 'An unimportant description',
+                'level': 'Unimportant' 
+            },
+            { 'title': 'test medium todo',
+                'description': 'A test',
+                'level': 'Medium'
+            },
+            { 'title': 'test important todo',
+                'description': 'An important test',
+                'level': 'Important'
+            }
+        ]
+    todo.sort_todos()
+    result = todo.show_todos(todo.todos,"2")
+    lines = result.split("\n")
+
+    first_line = lines[0]
+    assert "Item" in first_line
+    assert "Title" in first_line
+    assert "Description" in first_line
+    assert "Level" in first_line
+
+    second_line = lines[1]
+    assert "2" in second_line
+    assert "test medium todo" in second_line
+    assert "A test" in second_line
+    assert "Medium" in second_line
+
+    print "ok -- show_todos_subset"
+
+test_show_todos_subset()
+
 def test_todo_sort_order():
     todo.todos = [
             { 'title': 'test unimportant todo',
