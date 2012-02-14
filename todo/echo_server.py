@@ -1,5 +1,6 @@
 import socket
 import todo
+import pdb
 
 host = '' 
 port = 7600 
@@ -29,26 +30,18 @@ def clean_uri(uri):
         slash, value = uri.split("/")
     return value
 
+
 def handle_request(method):
-    if method == "GET":
-        todo.load_todo_list()
-        if len(uri)==1: # Root URL Parsed
-            output = sock.send(todo.run_command('show',{'which':"All"}) + "\n")
-        elif len(uri)>1: # Specific todo given
-            value = clean_uri(uri)
-            output = sock.send(todo.run_command('show',{'which':value}) + "\n")
+    # TODOS are somehow being deleted
+    value = clean_uri(uri)
+    commands = {
+            'GET': todo.run_command('show',{'which':value}),
+            'DELETE':[todo.run_command('delete',{'which':value}) + "\n"],
+            'POST':[],
+            'PUT':[],
+            }
 
-    if method == "DELETE":
-        value = clean_uri(uri) # Don't check len(), delete todo mod will catch
-        output = sock.send(todo.run_command('delete',{'which':value}) +
-        "\n")
-
-    if method == "POST":
-        pass
-
-    if method == "PUT":
-        pass
-
+    output = sock.send(str(commands[method]) + "\n")
     return output
 
 if __name__ == '__main__':

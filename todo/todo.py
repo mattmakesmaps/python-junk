@@ -75,15 +75,15 @@ def load_todo_list():
 def show_todos(todos, which="All"):
     """Given the todos object, display them"""
     output = ("Item|Title|Description|Level|\n")
-
-    if which=="All":
+    
+    if (which=="All" or which==""):
         for index, todo in enumerate(todos): #enumerate creates list w/ index
             line = str(index+1) + '|'
             for key in ['title','description','level']:
                 line += str(todo[key]) + '|' 
             output += line + "\n"
 
-    if which!="All":        
+    if (which!="All" and which!=""):        
         if not which.isdigit(): # if FALSE, then
             return ("'" + which + "' needs to be the number of a todo!")
         which = int(which)
