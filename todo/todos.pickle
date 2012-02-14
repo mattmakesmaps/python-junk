@@ -1,25 +1,15 @@
 (lp0
 (dp1
-S'level'
+S'title'
 p2
-S'IMPORTANT'
+S'2nd todo item'
 p3
 sS'description'
 p4
-S'add C for Create'
-p5
-sS'title'
-p6
-S'first todo item'
-p7
-sa(dp8
-g2
-S'IMPORTANT'
-p9
-sg4
 S'add R for Retrieve'
-p10
-sg6
-S'2nd todo item'
-p11
+p5
+sS'level'
+p6
+S'IMPORTANT'
+p7
 sa.
