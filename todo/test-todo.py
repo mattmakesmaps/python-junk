@@ -1,6 +1,7 @@
 import todo
 import os
 import pdb
+import echo_server
 
 def test_create_todo():
     todo.todos = []
@@ -277,3 +278,27 @@ def test_edit_importance():
     print "ok -- edit_importance"
 
 test_edit_importance()
+
+def test_socket_get():
+    echo_server.main_loop()
+    todo.todos = [
+            { 'title':'test medium todo',
+                'description':'This is a medium todo',
+                'level':'medium'
+                },
+            { 'title': 'test another medium todo',
+                'description':'This is another medium todo',
+                'level':'medium'
+                },
+            ]
+
+    uri = '/1'
+    method = 'GET'
+
+    result = echo_server.handle_request(uri, method)
+    print result
+
+test_socket_get()
+
+if __name__ == '__main__':
+    echo_server.main_loop()

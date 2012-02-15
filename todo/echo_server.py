@@ -31,7 +31,7 @@ def clean_uri(uri):
     return value
 
 
-def handle_request(method):
+def handle_request(uri, method):
     value = clean_uri(uri)
     # list comprehension, you dumbass
     commands = {
@@ -46,28 +46,30 @@ def handle_request(method):
     output = sock.send(str(result) + "\n")
     #return output
 
-if __name__ == '__main__':
+def main_loop():
     server = server_socket(host, int(port))
     print 'starting %s on %s...' % (host, port)
     try:
-        while True:
+        while true:
             sock, client_address = server.accept()
 
             todo.load_todo_list()
-            sock.send("Todo list loaded.\r\n\r\n")
+            sock.send("todo list loaded.\r\n\r\n")
 
             request = parse_request(sock)
             uri = request[1]
             method = request[0]
             protocol = request[2]
-            sock.send("URI: '%s' \nMethod: '%s'\r\n\r\n" % (uri, method))
+            sock.send("uri: '%s' \nmethod: '%s'\r\n\r\n" % (uri, method))
 
-            handle_request(method)
-            pdb.set_trace()
+            handle_request(uri, method)
             todo.save_todo_list()
-            sock.send("Todo list saved.\r\n\r\n")
+            sock.send("todo list saved.\r\n\r\n")
 
             sock.close()
-    except KeyboardInterrupt:
+    except keyboardinterrupt:
         print 'shutting down...'
     server.close()
+
+if __name__ == '__main__':
+    main_loop()
