@@ -32,17 +32,19 @@ def clean_uri(uri):
 
 
 def handle_request(method):
-    # TODOS are somehow being deleted
     value = clean_uri(uri)
+    # list comprehension, you dumbass
     commands = {
-            'GET': todo.run_command('show',{'which':value}),
-            'DELETE':[todo.run_command('delete',{'which':value}) + "\n"],
+            'GET': ['show',{'which':value}],
+            'DELETE':['delete',{'which':value}],
             'POST':[],
             'PUT':[],
             }
 
-    output = sock.send(str(commands[method]) + "\n")
-    return output
+    result = todo.run_command(commands[method][0],commands[method][1])
+
+    output = sock.send(str(result) + "\n")
+    #return output
 
 if __name__ == '__main__':
     server = server_socket(host, int(port))
@@ -61,7 +63,7 @@ if __name__ == '__main__':
             sock.send("URI: '%s' \nMethod: '%s'\r\n\r\n" % (uri, method))
 
             handle_request(method)
-
+            pdb.set_trace()
             todo.save_todo_list()
             sock.send("Todo list saved.\r\n\r\n")
 
