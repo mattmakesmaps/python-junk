@@ -1,6 +1,8 @@
 """
 Update name element from 'Point_generic' to
 value of comment field.
+
+TODO: HTML-Encoding
 """
 
 import BeautifulSoup
@@ -12,9 +14,8 @@ bsDataset = BeautifulSoup.BeautifulStoneSoup(bsInFile)
 bsOutFile = open('./wwtp_testpit_out_bs.kml','wb')
 bsPlacemarks = bsDataset.findAll('placemark')
 
-## TODO ##
 # Beautiful Soup converts all tags to lower case
-
+# Which causes errors in ArcGIS, QGIS, Google Earth
 tags = {'document': 'Document', 'style':'Style',
         'icon':'Icon', 'iconstyle':'IconStyle',
         'folder':'Folder', 'placemark':'Placemark',
@@ -36,5 +37,5 @@ for key, value in tags.items():
     for item in updateItems:
         item.name = value
 
-bsOutFile.write(str(bsDataset))
+bsOutFile.write(str(bsDataset).encode(encoding='UTF-8'))
 bsOutFile.close()
