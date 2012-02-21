@@ -27,4 +27,3 @@ for placemark in placemarks:
 
 dataset.write(outFile)
 outFile.close()
-pdb.set_trace()
