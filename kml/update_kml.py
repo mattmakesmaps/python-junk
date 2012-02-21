@@ -22,6 +22,12 @@ tags = {'document': 'Document', 'style':'Style',
         'styleurl':'styleUrl','point':'Point',
         'altitudemode':'altitudeMode'}
 
+# Update casing on tags
+for key, value in tags.items():
+    updateItems = bsDataset.findAll(key)
+    for item in updateItems:
+        item.name = value
+
 # Loop through individual placemarks.
 for placemark in bsPlacemarks:
     elemName = placemark.findChild('name')
@@ -34,12 +40,6 @@ for placemark in bsPlacemarks:
     print 'Updated Name: %s' % placemark.findChild('name').text
     # Replace Entity-Encoded HTML
     placemark.description.setString(htmlDesc)
-
-# Update casing on tags
-for key, value in tags.items():
-    updateItems = bsDataset.findAll(key)
-    for item in updateItems:
-        item.name = value
 
 # Write results
 bsOutFile.write(str(bsDataset))
