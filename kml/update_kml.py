@@ -2,7 +2,7 @@
 Update name element from 'Point_generic' to
 value of comment field.
 
-TODO: HTML-Encoding
+TODO: Create generator function
 """
 
 import BeautifulSoup
@@ -22,6 +22,7 @@ tags = {'document': 'Document', 'style':'Style',
         'styleurl':'styleUrl','point':'Point',
         'altitudemode':'altitudeMode'}
 
+# Loop through individual placemarks.
 for placemark in bsPlacemarks:
     elemName = placemark.findChild('name')
     print 'Original Name: %s' % elemName.text
@@ -31,11 +32,15 @@ for placemark in bsPlacemarks:
     print 'Comment Value: %s' % newName
     elemName.setString(newName)
     print 'Updated Name: %s' % placemark.findChild('name').text
+    # Replace Entity-Encoded HTML
+    placemark.description.setString(htmlDesc)
 
+# Update casing on tags
 for key, value in tags.items():
     updateItems = bsDataset.findAll(key)
     for item in updateItems:
         item.name = value
 
-bsOutFile.write(str(bsDataset).encode(encoding='UTF-8'))
+# Write results
+bsOutFile.write(str(bsDataset))
 bsOutFile.close()
