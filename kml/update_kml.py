@@ -12,6 +12,15 @@ bsDataset = BeautifulSoup.BeautifulStoneSoup(bsInFile)
 bsOutFile = open('./wwtp_testpit_out_bs.kml','wb')
 bsPlacemarks = bsDataset.findAll('placemark')
 
+## TODO ##
+# Beautiful Soup converts all tags to lower case
+
+tags = {'document': 'Document', 'style':'Style',
+        'icon':'Icon', 'iconstyle':'IconStyle',
+        'folder':'Folder', 'placemark':'Placemark',
+        'styleurl':'styleUrl','point':'Point',
+        'altitudemode':'altitudeMode'}
+
 for placemark in bsPlacemarks:
     elemName = placemark.findChild('name')
     print 'Original Name: %s' % elemName.text
@@ -21,6 +30,11 @@ for placemark in bsPlacemarks:
     print 'Comment Value: %s' % newName
     elemName.setString(newName)
     print 'Updated Name: %s' % placemark.findChild('name').text
+
+for key, value in tags.items():
+    updateItems = bsDataset.findAll(key)
+    for item in updateItems:
+        item.name = value
 
 bsOutFile.write(str(bsDataset))
 bsOutFile.close()
