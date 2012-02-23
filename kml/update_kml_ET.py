@@ -14,8 +14,8 @@ from BeautifulSoup import BeautifulSoup
 import os, string, pdb
 
 namespace = 'http://www.opengis.net/kml/2.2'
-dataset = ElementTree.parse('./wwtp_testpit.kml') 
-outFile = open('./wwtp_testpit_out.kml', "wb")
+dataset = ElementTree.parse('./test.kml') 
+outFile = open('./test_out_et.kml', "wb")
 root = dataset.getroot()
 placemarks = root.findall('{%s}Document/{%s}Folder/{%s}Placemark' % (namespace, namespace,
     namespace))

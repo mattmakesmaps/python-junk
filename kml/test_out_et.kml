@@ -1,0 +1,74 @@
+<ns0:kml xmlns:ns0="http://www.opengis.net/kml/2.2">
+  <ns0:Document>
+    <ns0:Style id="style_Point_generic">
+      <ns0:IconStyle>
+        <ns0:Icon>
+          <ns0:href>Point_generic.png</ns0:href>
+        </ns0:Icon>
+      </ns0:IconStyle>
+    </ns0:Style>
+    <ns0:Folder>
+      <ns0:name>Point_generic</ns0:name>
+      <ns0:Placemark>
+        <ns0:name>Comment One</ns0:name>
+        <ns0:description>&lt;style type="text/css"&gt;td {white-space:nowrap} th {align:left} td.padr {padding-right:0.5cm}&lt;/style&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Comment:&lt;/td&gt;&lt;td&gt;Comment One&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Max PDOP:&lt;/td&gt;&lt;td&gt;2.3&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Max HDOP:&lt;/td&gt;&lt;td&gt;1.2&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;GPS Date:&lt;/td&gt;&lt;td&gt;02/16/12&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;GPS Time:&lt;/td&gt;&lt;td&gt;11:01:09am&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Feat Name:&lt;/td&gt;&lt;td&gt;Point_generic&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Datafile:&lt;/td&gt;&lt;td&gt;WWTP TESTPIT.cor&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;GPS Week:&lt;/td&gt;&lt;td&gt;1675&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;GPS Second:&lt;/td&gt;&lt;td&gt;414084.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;GNSS Height:&lt;/td&gt;&lt;td&gt;284.032&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Horz Prec:&lt;/td&gt;&lt;td&gt;0.4&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Std Dev:&lt;/td&gt;&lt;td&gt;0.024771&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Point_ID:&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</ns0:description>
+        <ns0:styleUrl>#style_Point_generic</ns0:styleUrl>
+        <ns0:Point>
+          <ns0:extrude>0</ns0:extrude>
+          <ns0:altitudeMode>clampToGround</ns0:altitudeMode>
+          <ns0:coordinates>
+            -119.287,50.3038 
+          </ns0:coordinates>
+        </ns0:Point>
+      </ns0:Placemark>
+      <ns0:Placemark>
+        <ns0:name>Comment Two</ns0:name>
+        <ns0:description>&lt;style type="text/css"&gt;td {white-space:nowrap} th {align:left} td.padr {padding-right:0.5cm}&lt;/style&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Comment:&lt;/td&gt;&lt;td&gt;Comment Two&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Max PDOP:&lt;/td&gt;&lt;td&gt;2.3&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Max HDOP:&lt;/td&gt;&lt;td&gt;1.1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;GPS Date:&lt;/td&gt;&lt;td&gt;02/16/12&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;GPS Time:&lt;/td&gt;&lt;td&gt;11:16:09am&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Feat Name:&lt;/td&gt;&lt;td&gt;Point_generic&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Datafile:&lt;/td&gt;&lt;td&gt;WWTP TESTPIT.cor&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;GPS Week:&lt;/td&gt;&lt;td&gt;1675&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;GPS Second:&lt;/td&gt;&lt;td&gt;414984.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;GNSS Height:&lt;/td&gt;&lt;td&gt;283.882&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Horz Prec:&lt;/td&gt;&lt;td&gt;0.2&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Std Dev:&lt;/td&gt;&lt;td&gt;0.048362&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Point_ID:&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</ns0:description>
+        <ns0:styleUrl>#style_Point_generic</ns0:styleUrl>
+        <ns0:Point>
+          <ns0:extrude>0</ns0:extrude>
+          <ns0:altitudeMode>clampToGround</ns0:altitudeMode>
+          <ns0:coordinates>
+            -119.204,50.2828 
+          </ns0:coordinates>
+        </ns0:Point>
+      </ns0:Placemark>
+      <ns0:Placemark>
+        <ns0:name>Comment Three</ns0:name>
+        <ns0:description>&lt;style type="text/css"&gt;td {white-space:nowrap} th {align:left} td.padr {padding-right:0.5cm}&lt;/style&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Comment:&lt;/td&gt;&lt;td&gt;Comment Three&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Max PDOP:&lt;/td&gt;&lt;td&gt;2.3&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Max HDOP:&lt;/td&gt;&lt;td&gt;1.2&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;GPS Date:&lt;/td&gt;&lt;td&gt;02/16/12&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;GPS Time:&lt;/td&gt;&lt;td&gt;11:36:52am&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Feat Name:&lt;/td&gt;&lt;td&gt;Point_generic&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Datafile:&lt;/td&gt;&lt;td&gt;WWTP TESTPIT.cor&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;GPS Week:&lt;/td&gt;&lt;td&gt;1675&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;GPS Second:&lt;/td&gt;&lt;td&gt;416227.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;GNSS Height:&lt;/td&gt;&lt;td&gt;282.734&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Horz Prec:&lt;/td&gt;&lt;td&gt;0.4&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Std Dev:&lt;/td&gt;&lt;td&gt;0.031249&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Point_ID:&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</ns0:description>
+        <ns0:styleUrl>#style_Point_generic</ns0:styleUrl>
+        <ns0:Point>
+          <ns0:extrude>0</ns0:extrude>
+          <ns0:altitudeMode>clampToGround</ns0:altitudeMode>
+          <ns0:coordinates>
+            -119.205,50.2411 
+          </ns0:coordinates>
+        </ns0:Point>
+      </ns0:Placemark>
+      <ns0:Placemark>
+        <ns0:name>Comment Four</ns0:name>
+        <ns0:description>&lt;style type="text/css"&gt;td {white-space:nowrap} th {align:left} td.padr {padding-right:0.5cm}&lt;/style&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Comment:&lt;/td&gt;&lt;td&gt;Comment Four&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Max PDOP:&lt;/td&gt;&lt;td&gt;2.9&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Max HDOP:&lt;/td&gt;&lt;td&gt;1.7&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;GPS Date:&lt;/td&gt;&lt;td&gt;02/16/12&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;GPS Time:&lt;/td&gt;&lt;td&gt;11:42:12am&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Feat Name:&lt;/td&gt;&lt;td&gt;Point_generic&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Datafile:&lt;/td&gt;&lt;td&gt;WWTP TESTPIT.cor&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;GPS Week:&lt;/td&gt;&lt;td&gt;1675&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;GPS Second:&lt;/td&gt;&lt;td&gt;416547.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;GNSS Height:&lt;/td&gt;&lt;td&gt;281.362&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Horz Prec:&lt;/td&gt;&lt;td&gt;1.0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Std Dev:&lt;/td&gt;&lt;td&gt;0.169928&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Point_ID:&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</ns0:description>
+        <ns0:styleUrl>#style_Point_generic</ns0:styleUrl>
+        <ns0:Point>
+          <ns0:extrude>0</ns0:extrude>
+          <ns0:altitudeMode>clampToGround</ns0:altitudeMode>
+          <ns0:coordinates>
+            -119.312,50.2314 
+          </ns0:coordinates>
+        </ns0:Point>
+      </ns0:Placemark>
+      <ns0:Placemark>
+        <ns0:name>Comment Five</ns0:name>
+        <ns0:description>&lt;style type="text/css"&gt;td {white-space:nowrap} th {align:left} td.padr {padding-right:0.5cm}&lt;/style&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Comment:&lt;/td&gt;&lt;td&gt;Comment Five&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Max PDOP:&lt;/td&gt;&lt;td&gt;2.7&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Max HDOP:&lt;/td&gt;&lt;td&gt;1.7&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;GPS Date:&lt;/td&gt;&lt;td&gt;02/16/12&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;GPS Time:&lt;/td&gt;&lt;td&gt;11:42:59am&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Feat Name:&lt;/td&gt;&lt;td&gt;Point_generic&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Datafile:&lt;/td&gt;&lt;td&gt;WWTP TESTPIT.cor&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;GPS Week:&lt;/td&gt;&lt;td&gt;1675&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;GPS Second:&lt;/td&gt;&lt;td&gt;416594.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;GNSS Height:&lt;/td&gt;&lt;td&gt;280.676&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Horz Prec:&lt;/td&gt;&lt;td&gt;0.8&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Std Dev:&lt;/td&gt;&lt;td&gt;0.008972&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="padr"&gt;Point_ID:&lt;/td&gt;&lt;td&gt;5&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</ns0:description>
+        <ns0:styleUrl>#style_Point_generic</ns0:styleUrl>
+        <ns0:Point>
+          <ns0:extrude>0</ns0:extrude>
+          <ns0:altitudeMode>clampToGround</ns0:altitudeMode>
+          <ns0:coordinates>
+            -119.335,50.2709 
+          </ns0:coordinates>
+        </ns0:Point>
+      </ns0:Placemark>
+    </ns0:Folder>
+  </ns0:Document>
+</ns0:kml>
