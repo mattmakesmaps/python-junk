@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='utf-8'?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<Style id="style_Point_generic">
+<IconStyle>
+<Icon>
+<href>Point_generic.png</href>
+</Icon>
+</IconStyle>
+</Style>
+<Folder>
+<name>Point_generic</name>
+<Placemark>
+<name>Comment One</name>
+<description><style type="text/css">td {white-space:nowrap} th {align:left} td.padr {padding-right:0.5cm}</style><table><tr><th></th><th></th></tr><tr><td class="padr">Comment:</td><td>Comment One</td></tr><tr><td class="padr">Max PDOP:</td><td>2.3</td></tr><tr><td class="padr">Max HDOP:</td><td>1.2</td></tr><tr><td class="padr">GPS Date:</td><td>02/16/12</td></tr><tr><td class="padr">GPS Time:</td><td>11:01:09am</td></tr><tr><td class="padr">Feat Name:</td><td>Point_generic</td></tr><tr><td class="padr">Datafile:</td><td>WWTP TESTPIT.cor</td></tr><tr><td class="padr">GPS Week:</td><td>1675</td></tr><tr><td class="padr">GPS Second:</td><td>414084.000</td></tr><tr><td class="padr">GNSS Height:</td><td>284.032</td></tr><tr><td class="padr">Horz Prec:</td><td>0.4</td></tr><tr><td class="padr">Std Dev:</td><td>0.024771</td></tr><tr><td class="padr">Point_ID:</td><td>1</td></tr></table></description>
+<styleUrl>#style_Point_generic</styleUrl>
+<Point>
+<extrude>0</extrude>
+<altitudeMode>clampToGround</altitudeMode>
+<coordinates>
+            -119.287,50.3038 
+          </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Comment Two</name>
+<description><style type="text/css">td {white-space:nowrap} th {align:left} td.padr {padding-right:0.5cm}</style><table><tr><th></th><th></th></tr><tr><td class="padr">Comment:</td><td>Comment Two</td></tr><tr><td class="padr">Max PDOP:</td><td>2.3</td></tr><tr><td class="padr">Max HDOP:</td><td>1.1</td></tr><tr><td class="padr">GPS Date:</td><td>02/16/12</td></tr><tr><td class="padr">GPS Time:</td><td>11:16:09am</td></tr><tr><td class="padr">Feat Name:</td><td>Point_generic</td></tr><tr><td class="padr">Datafile:</td><td>WWTP TESTPIT.cor</td></tr><tr><td class="padr">GPS Week:</td><td>1675</td></tr><tr><td class="padr">GPS Second:</td><td>414984.000</td></tr><tr><td class="padr">GNSS Height:</td><td>283.882</td></tr><tr><td class="padr">Horz Prec:</td><td>0.2</td></tr><tr><td class="padr">Std Dev:</td><td>0.048362</td></tr><tr><td class="padr">Point_ID:</td><td>2</td></tr></table></description>
+<styleUrl>#style_Point_generic</styleUrl>
+<Point>
+<extrude>0</extrude>
+<altitudeMode>clampToGround</altitudeMode>
+<coordinates>
+            -119.204,50.2828 
+          </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Comment Three</name>
+<description><style type="text/css">td {white-space:nowrap} th {align:left} td.padr {padding-right:0.5cm}</style><table><tr><th></th><th></th></tr><tr><td class="padr">Comment:</td><td>Comment Three</td></tr><tr><td class="padr">Max PDOP:</td><td>2.3</td></tr><tr><td class="padr">Max HDOP:</td><td>1.2</td></tr><tr><td class="padr">GPS Date:</td><td>02/16/12</td></tr><tr><td class="padr">GPS Time:</td><td>11:36:52am</td></tr><tr><td class="padr">Feat Name:</td><td>Point_generic</td></tr><tr><td class="padr">Datafile:</td><td>WWTP TESTPIT.cor</td></tr><tr><td class="padr">GPS Week:</td><td>1675</td></tr><tr><td class="padr">GPS Second:</td><td>416227.000</td></tr><tr><td class="padr">GNSS Height:</td><td>282.734</td></tr><tr><td class="padr">Horz Prec:</td><td>0.4</td></tr><tr><td class="padr">Std Dev:</td><td>0.031249</td></tr><tr><td class="padr">Point_ID:</td><td>3</td></tr></table></description>
+<styleUrl>#style_Point_generic</styleUrl>
+<Point>
+<extrude>0</extrude>
+<altitudeMode>clampToGround</altitudeMode>
+<coordinates>
+            -119.205,50.2411 
+          </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Comment Four</name>
+<description><style type="text/css">td {white-space:nowrap} th {align:left} td.padr {padding-right:0.5cm}</style><table><tr><th></th><th></th></tr><tr><td class="padr">Comment:</td><td>Comment Four</td></tr><tr><td class="padr">Max PDOP:</td><td>2.9</td></tr><tr><td class="padr">Max HDOP:</td><td>1.7</td></tr><tr><td class="padr">GPS Date:</td><td>02/16/12</td></tr><tr><td class="padr">GPS Time:</td><td>11:42:12am</td></tr><tr><td class="padr">Feat Name:</td><td>Point_generic</td></tr><tr><td class="padr">Datafile:</td><td>WWTP TESTPIT.cor</td></tr><tr><td class="padr">GPS Week:</td><td>1675</td></tr><tr><td class="padr">GPS Second:</td><td>416547.000</td></tr><tr><td class="padr">GNSS Height:</td><td>281.362</td></tr><tr><td class="padr">Horz Prec:</td><td>1.0</td></tr><tr><td class="padr">Std Dev:</td><td>0.169928</td></tr><tr><td class="padr">Point_ID:</td><td>4</td></tr></table></description>
+<styleUrl>#style_Point_generic</styleUrl>
+<Point>
+<extrude>0</extrude>
+<altitudeMode>clampToGround</altitudeMode>
+<coordinates>
+            -119.312,50.2314 
+          </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Comment Five</name>
+<description><style type="text/css">td {white-space:nowrap} th {align:left} td.padr {padding-right:0.5cm}</style><table><tr><th></th><th></th></tr><tr><td class="padr">Comment:</td><td>Comment Five</td></tr><tr><td class="padr">Max PDOP:</td><td>2.7</td></tr><tr><td class="padr">Max HDOP:</td><td>1.7</td></tr><tr><td class="padr">GPS Date:</td><td>02/16/12</td></tr><tr><td class="padr">GPS Time:</td><td>11:42:59am</td></tr><tr><td class="padr">Feat Name:</td><td>Point_generic</td></tr><tr><td class="padr">Datafile:</td><td>WWTP TESTPIT.cor</td></tr><tr><td class="padr">GPS Week:</td><td>1675</td></tr><tr><td class="padr">GPS Second:</td><td>416594.000</td></tr><tr><td class="padr">GNSS Height:</td><td>280.676</td></tr><tr><td class="padr">Horz Prec:</td><td>0.8</td></tr><tr><td class="padr">Std Dev:</td><td>0.008972</td></tr><tr><td class="padr">Point_ID:</td><td>5</td></tr></table></description>
+<styleUrl>#style_Point_generic</styleUrl>
+<Point>
+<extrude>0</extrude>
+<altitudeMode>clampToGround</altitudeMode>
+<coordinates>
+            -119.335,50.2709 
+          </coordinates>
+</Point>
+</Placemark>
+</Folder>
+</Document>
+</kml>

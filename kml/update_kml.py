@@ -9,9 +9,9 @@ import BeautifulSoup
 import os, string, pdb
 
 # BeautifulSoup
-bsInFile = open('./wwtp_testpit.kml','rb')
+bsInFile = open('./test.kml','rb')
 bsDataset = BeautifulSoup.BeautifulStoneSoup(bsInFile)
-bsOutFile = open('./wwtp_testpit_out_bs.kml','wb')
+bsOutFile = open('./test_out_bs.kml','wb')
 bsPlacemarks = bsDataset.findAll('placemark')
 
 # Beautiful Soup converts all tags to lower case
