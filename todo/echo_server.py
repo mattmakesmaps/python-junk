@@ -50,7 +50,7 @@ def main_loop():
     server = server_socket(host, int(port))
     print 'starting %s on %s...' % (host, port)
     try:
-        while true:
+        while True:
             sock, client_address = server.accept()
 
             todo.load_todo_list()
@@ -67,7 +67,7 @@ def main_loop():
             sock.send("todo list saved.\r\n\r\n")
 
             sock.close()
-    except keyboardinterrupt:
+    except KeyboardInterrupt:
         print 'shutting down...'
     server.close()
 
