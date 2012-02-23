@@ -1,29 +1,45 @@
 """
 Update name element from 'Point_generic' to
 value of comment field.
+TODO: Create generator function
 """
 
-from xml.etree import ElementTree
-from BeautifulSoup import BeautifulSoup
+import BeautifulSoup
 import os, string, pdb
 
-namespace = 'http://www.opengis.net/kml/2.2'
-dataset = ElementTree.parse('./wwtp_testpit.kml') 
-outFile = open('./wwtp_testpit_out.kml', "wb")
-root = dataset.getroot()
-placemarks = root.findall('{%s}Document/{%s}Folder/{%s}Placemark' % (namespace, namespace,
-    namespace))
+# BeautifulSoup
+bsInFile = open('./test.kml','rb')
+bsDataset = BeautifulSoup.BeautifulStoneSoup(bsInFile)
+bsOutFile = open('./test_out_bs.kml','wb')
+bsPlacemarks = bsDataset.findAll('placemark')
 
-for placemark in placemarks:
-    elemName = placemark.find('{%s}name' % namespace)
-    print 'Original Name: ' + elemName.text 
-    elemDesc = placemark.find('{%s}description' % namespace).text
-    htmlDesc = BeautifulSoup(elemDesc)
+# Beautiful Soup converts all tags to lower case
+# Which causes errors in ArcGIS, QGIS, Google Earth
+tags = {'document': 'Document', 'style':'Style',
+        'icon':'Icon', 'iconstyle':'IconStyle',
+        'folder':'Folder', 'placemark':'Placemark',
+        'styleurl':'styleUrl','point':'Point',
+        'altitudemode':'altitudeMode'}
+
+# Update casing on tags
+for key, value in tags.items():
+    updateItems = bsDataset.findAll(key)
+    for item in updateItems:
+        item.name = value
+
+# Loop through individual placemarks.
+for placemark in bsPlacemarks:
+    elemName = placemark.findChild('name')
+    print 'Original Name: %s' % elemName.text
+    htmlDesc = BeautifulSoup.BeautifulSoup(placemark.find('description').text)
     tables = htmlDesc.findAll('td')
     newName = tables[1].text
-    elemName.text = newName
-    print 'Comment Value: ' + newName
-    print 'Updated Name: ' + placemark.find('{%s}name' % namespace).text
+    print 'Comment Value: %s' % newName
+    elemName.setString(newName)
+    print 'Updated Name: %s' % placemark.findChild('name').text
+    # Replace Entity-Encoded HTML
+    placemark.description.setString(htmlDesc)
 
-dataset.write(outFile)
-outFile.close()
+# Write results
+bsOutFile.write(str(bsDataset))
+bsOutFile.close()
