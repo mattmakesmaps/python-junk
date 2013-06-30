@@ -5,8 +5,9 @@ class DecTest(object):
 
     def __init__(self, inName='NoName'):
         """Set some defaults for this class"""
-        # Changing '_name' to 'name' still works, why?
-        self._internal_name = inName
+        # using self.name here will force at construction the use of
+        # getters and setters.
+        self.name = inName
 
     @property
     def name(self):
@@ -19,6 +20,12 @@ class DecTest(object):
             self._internal_name = value
         else:
             raise ValueError('Expected String! Got %s' % type(value))
+
+    def upper_checker(self, value):
+        if isinstance(value, str) and value.upper() == value:
+            return True
+        else:
+            return False
 
 if __name__ == '__main__':
     # Should Use Setter and Getter
